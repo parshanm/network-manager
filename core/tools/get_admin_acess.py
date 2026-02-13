@@ -1,6 +1,7 @@
 import elevate
 import ctypes
 import platform
+import os
 
 def check_admin(sed_request:bool):
     if platform.system().lower() == 'windows':
@@ -18,3 +19,6 @@ def check_admin(sed_request:bool):
                     return 'process intrupted'
         else:
             return ctypes.windll.shell32.IsUserAnAdmin()
+    elif platform.system() == 'Linux':
+        if os.popen('whoami') != 'root':
+            elevate.elevate(graphical=True)

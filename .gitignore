@@ -1,5 +1,4 @@
+.venv/
 venv/
-.vscode/
-test.*
-*.pyc
 __pycache__/
+*.pyc
